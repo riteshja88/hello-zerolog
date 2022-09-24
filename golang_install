@@ -12,12 +12,12 @@ rm -rf ${GO_LOCATION}/go${GO_VERSION}
 mv -f go ${GO_LOCATION}/go${GO_VERSION}
 cd ${GO_LOCATION}
 echo "export GOROOT=${GO_LOCATION}/go${GO_VERSION}"
-echo "export PATH=$GOROOT/bin:\$PATH"
+echo "export PATH=${GO_LOCATION}/go${GO_VERSION}/bin:\$PATH"
 
 # Install Third Party Packages
 for package in \
 	github.com/rs/zerolog/log
 do
-	echo "go get -u  ${package}"
+	echo "go get ${package}"
 done
 
