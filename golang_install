@@ -1,0 +1,23 @@
+#!/bin/bash
+export GO_VERSION="1.17.6"
+export GO_LOCATION="$HOME/usr/local"
+cd /tmp/
+rm -rf go #clean
+rm -rf go${GO_VERSION}.linux-amd64.tar.gz # clean
+wget -q https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz
+tar xf go${GO_VERSION}.linux-amd64.tar.gz
+rm -f go${GO_VERSION}.linux-amd64.tar.gz
+mkdir -p ${GO_LOCATION}
+rm -rf ${GO_LOCATION}/go${GO_VERSION}
+mv -f go ${GO_LOCATION}/go${GO_VERSION}
+cd ${GO_LOCATION}
+echo "export GOROOT=${GO_LOCATION}/go${GO_VERSION}"
+echo "export PATH=$GOROOT/bin:\$PATH"
+
+# Install Third Party Packages
+for package in \
+	github.com/rs/zerolog/log
+do
+	echo "go get -u  ${package}"
+done
+
