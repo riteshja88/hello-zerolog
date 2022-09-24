@@ -1,7 +1,9 @@
 all: setup run
 
 run:
-	/home/ritesh/usr/local/go1.17.6/bin/go run hello.go
+	@echo "Running......"
+	@export GOROOT=/home/ritesh/usr/local/go1.17.6
+	@/home/ritesh/usr/local/go1.17.6/bin/go run hello.go
 
 setup:
 	./golang_install
