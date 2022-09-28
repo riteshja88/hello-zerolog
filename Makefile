@@ -4,6 +4,7 @@ run:
 	@echo "Running......"
 	@export GOROOT=/home/ritesh/usr/local/go1.17.6
 	@/home/ritesh/usr/local/go1.17.6/bin/go run hello.go
+	cat logs.txt
 
 setup:
 	./golang_install
